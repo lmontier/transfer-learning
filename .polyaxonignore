@@ -1,0 +1,16 @@
+
+.git
+.eggs
+eggs
+lib
+lib64
+parts
+venv
+output
+sdist
+data
+var
+*.pyc
+*.swp
+.DS_Store
+./.polyaxon
