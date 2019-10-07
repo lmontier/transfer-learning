@@ -5,6 +5,7 @@ import tensorflow as tf
 from keras.applications import MobileNet
 from keras.applications.mobilenet import preprocess_input
 from keras.backend.tensorflow_backend import set_session
+from keras.callbacks import TensorBoard
 from keras.layers import Dense, GlobalAveragePooling2D
 from keras.models import Model
 from keras.preprocessing.image import ImageDataGenerator
@@ -69,7 +70,8 @@ model.fit_generator(
     generator=train_generator,
     validation_data=val_generator,
     steps_per_epoch=step_size_train,
-    epochs=5
+    epochs=5,
+    callbacks=[TensorBoard(log_dir='./output')],
 )
 
 score = model.evaluate_generator(test_generator)
